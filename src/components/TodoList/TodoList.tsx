@@ -8,6 +8,8 @@ import {Context} from 'app/context/Context';
 
 import {addTask} from 'reducer/reducer';
 
+import {AddItem} from 'components/AddItem/AddItem';
+
 import s from './TodoList.module.css';
 
 export const TodoList = () => {
@@ -24,8 +26,7 @@ export const TodoList = () => {
   return (
     <div className={s.todoList}>
       <h2>{'title'}</h2>
-      <input type="text"/>
-      <button onClick={() => addNewTask('hello')}>+</button>
+      <AddItem addItem={addNewTask}/>
       <ul>
         {tasksMap}
       </ul>
