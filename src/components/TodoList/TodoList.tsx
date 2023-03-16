@@ -1,13 +1,8 @@
 import React, {useContext} from 'react';
-
 import {TaskType} from 'types';
-
 import {Task} from 'components/Task/Task';
-
 import {Context} from 'app/context/Context';
-
 import {addTask} from 'reducer/reducer';
-
 import {AddItem} from 'components/AddItem/AddItem';
 
 import s from './TodoList.module.css';
