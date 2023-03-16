@@ -1,0 +1,14 @@
+.group {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0;
+}
+
+.active {
+  background-color: #03A9F4;
+}
+
+.active:hover {
+  background-color: #03A9F4;
+}

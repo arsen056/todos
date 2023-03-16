@@ -1,0 +1,25 @@
+.inputWrapper {
+  width: 100%;
+}
+
+.input {
+  border: 0;
+  border-bottom: 2px solid #BDBDBD;
+  font-size: inherit;
+  outline: 0;
+  background-color: #F4F4F4;
+  border-radius: 5px 5px 0 0;
+}
+
+.fullwidth {
+  width: 100%;
+}
+
+.errorInput {
+  border-color: brown;
+}
+
+.error {
+  color: brown;
+  height: 30px;
+}

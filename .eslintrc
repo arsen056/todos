@@ -10,7 +10,7 @@
     "jsx-quotes": ["error", "prefer-double"],
     "prefer-const": "error",
     "indent": ["warn", 2],
-    "max-len": ["error", {"code":  120}],
+    "max-len": ["error", {"code":  130}],
     "semi": ["warn", "always"],
     "import/order": ["error", {
       "groups": ["builtin", "external", "internal", "parent", "sibling", "index", "object", "type"],

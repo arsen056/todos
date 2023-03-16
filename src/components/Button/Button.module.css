@@ -1,0 +1,20 @@
+.button {
+  font-size: inherit;
+  padding: 0 1rem;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid #BDBDBD;
+}
+
+.button:hover {
+  opacity: 0.8;
+  background-color: #F4F4F4;
+}
+
+.add {
+  background-color: #4CAF50;
+}
+
+.active {
+  background-color: #03A9F4;
+}

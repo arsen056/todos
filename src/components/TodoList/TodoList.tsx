@@ -8,6 +8,8 @@ import uuid from 'react-uuid';
 
 import {getFilteredTasks} from 'utils/getFilteredTasks';
 
+import {ButtonGroup} from 'components/ButtonGroup/ButtonGroup';
+
 import s from './TodoList.module.css';
 
 export const TodoList = () => {
@@ -27,14 +29,12 @@ export const TodoList = () => {
 
   return (
     <div className={s.todoList}>
-      <h2>{todos.title}</h2>
+      <h2 className={s.title}>{todos.title}</h2>
       <AddItem addItem={addNewTask}/>
+      <ButtonGroup editFilter={editFilter}/>
       <ul>
         {tasksMap}
       </ul>
-      <button onClick={() => editFilter('all')}>all</button>
-      <button onClick={() => editFilter('active')}>active</button>
-      <button onClick={() => editFilter('completed')}>completed</button>
     </div>
   );
 };
