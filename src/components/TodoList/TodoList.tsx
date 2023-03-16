@@ -27,7 +27,7 @@ export const TodoList = () => {
 
   return (
     <div className={s.todoList}>
-      <h2>{'title'}</h2>
+      <h2>{todos.title}</h2>
       <AddItem addItem={addNewTask}/>
       <ul>
         {tasksMap}
