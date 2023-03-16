@@ -2,7 +2,7 @@ import React, {FC, ReactNode, useReducer} from 'react';
 import {initState, reducer} from 'reducer/reducer';
 import {Context} from 'app/context/Context';
 
-type Props = {
+interface Props {
   children: ReactNode
 }
 

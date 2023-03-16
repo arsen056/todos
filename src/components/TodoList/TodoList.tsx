@@ -16,7 +16,7 @@ export const TodoList = () => {
 
   const {todos, dispatch} = useContext(Context);
 
-  const tasksMap = todos.map(t => <Task title={t.title} isDone={t.isDone} />);
+  const tasksMap = todos.map(t => <Task key={t.id} id={t.id} title={t.title} isDone={t.isDone} />);
 
   const addNewTask = (title: string) => {
     const newTask: TaskType = {id: '1', title, isDone: false};

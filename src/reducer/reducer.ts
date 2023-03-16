@@ -6,13 +6,18 @@ export const initState: TaskType[] = [
   {id: '212sa3', title: 'Css', isDone: false},
   {id: '21asd23', title: 'JS', isDone: false},];
 
-export const reducer = (state: TaskType[], action: ReturnType<typeof addTask>) => {
+export const reducer = (state: TaskType[], action: actionsType) => {
   switch (action.type) {
   case 'ADD_TASK':
     return [action.task, ...state];
+  case 'CHANGE_STATUS':
+    return state.map(t => t.id === action.id ? {...t, isDone: action.isDone} : t);
   default:
     return state;
   }
 };
 
-export const addTask = (task: TaskType) => ({type: 'ADD_TASK', task});
+type actionsType = ReturnType<typeof addTask> | ReturnType<typeof changeStatus>
+
+export const addTask = (task: TaskType) => ({type: 'ADD_TASK', task} as const);
+export const changeStatus = (id: string, isDone: boolean) => ({type: 'CHANGE_STATUS', id, isDone} as const);
