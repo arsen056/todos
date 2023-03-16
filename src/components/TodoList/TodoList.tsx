@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {TaskType} from 'types';
+import {FilterType, TaskType} from 'types';
 import {Task} from 'components/Task/Task';
 import {Context} from 'app/context/Context';
-import {addTask} from 'reducer/reducer';
+import {addTask, changeFilter} from 'reducer/reducer';
 import {AddItem} from 'components/AddItem/AddItem';
 import uuid from 'react-uuid';
 
@@ -23,6 +23,8 @@ export const TodoList = () => {
     dispatch(addTask(newTask));
   };
 
+  const editFilter = (filter: FilterType) => dispatch(changeFilter(filter));
+
   return (
     <div className={s.todoList}>
       <h2>{'title'}</h2>
@@ -30,9 +32,9 @@ export const TodoList = () => {
       <ul>
         {tasksMap}
       </ul>
-      <button>all</button>
-      <button>active</button>
-      <button>completed</button>
+      <button onClick={() => editFilter('all')}>all</button>
+      <button onClick={() => editFilter('active')}>active</button>
+      <button onClick={() => editFilter('completed')}>completed</button>
     </div>
   );
 };
