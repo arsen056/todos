@@ -1,4 +1,3 @@
-export * from './TaskType';
-export * from './FilterType';
+export * from 'types/TodosType';
 export * from 'types/ContextType';
 

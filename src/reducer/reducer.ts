@@ -1,19 +1,24 @@
-import {TaskType} from 'types';
+import {TaskType, TodosType} from 'types';
+import uuid from 'react-uuid';
 
-export const initState: TaskType[] = [
-  {id: '2123', title: 'React', isDone: false},
-  {id: '2112323', title: 'Html', isDone: false},
-  {id: '212sa3', title: 'Css', isDone: false},
-  {id: '21asd23', title: 'JS', isDone: false},];
+export const initState: TodosType = {
+  title: 'Todos',
+  filter: 'all',
+  tasks: [
+    {id: uuid(), title: 'React', isDone: false},
+    {id: uuid(), title: 'Html', isDone: false},
+    {id: uuid(), title: 'Css', isDone: false},
+    {id: uuid(), title: 'JS', isDone: false}]
+};
 
-export const reducer = (state: TaskType[], action: actionsType) => {
+export const reducer = (state: TodosType, action: actionsType): TodosType => {
   switch (action.type) {
   case 'ADD_TASK':
-    return [action.task, ...state];
+    return {...state, tasks: [action.task, ...state.tasks]};
   case 'CHANGE_STATUS':
-    return state.map(t => t.id === action.id ? {...t, isDone: action.isDone} : t);
+    return {...state, tasks: state.tasks.map(t => t.id === action.id ? {...t, isDone: action.isDone} : t)};
   case 'DELETE_TASK':
-    return state.filter(t => t.id !== action.id);
+    return {...state, tasks: state.tasks.filter(t => t.id !== action.id)};
   default:
     return state;
   }

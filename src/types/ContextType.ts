@@ -1,7 +1,7 @@
 import {Dispatch} from 'react';
-import {TaskType} from 'types/TaskType';
+import {TodosType} from 'types/TodosType';
 
 export interface ContextType {
-  todos: TaskType[],
+  todos: TodosType,
   dispatch: Dispatch<any>
 }
