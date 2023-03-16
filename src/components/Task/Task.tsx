@@ -1,6 +1,7 @@
 import React, {ChangeEvent, FC, useContext} from 'react';
 import {Context} from 'app/context/Context';
-import {changeStatus, deleteTask} from 'reducer/reducer';
+import {changeStatus, changeTaskTitle, deleteTask} from 'reducer/reducer';
+import {EditableSpan} from 'components/EditableSpan/EditableSpan';
 
 type Props = {
   id: string
@@ -15,12 +16,16 @@ export const Task:FC<Props> = ({id, title, isDone}) => {
     dispatch(changeStatus(id, e.target.checked));
   };
 
+  const changeTitle = (title: string) => {
+    dispatch(changeTaskTitle(id, title));
+  };
+
   const deleteTaskHandler = () => dispatch(deleteTask(id));
 
   return (
     <li>
       <input onChange={changeStatusHandler} checked={isDone} type="checkbox"/>
-      <span>{title}</span>
+      <EditableSpan title={title} changeTitle={changeTitle}/>
       <button onClick={deleteTaskHandler}>x</button>
     </li>
   );
