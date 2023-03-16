@@ -1,33 +1,31 @@
-import React, {FC} from 'react';
+import React, {useContext} from 'react';
 
-import {TaskType, TodoType} from 'types';
+import {TaskType} from 'types';
 
 import {Task} from 'components/Task/Task';
 
-import {useAppContext} from 'hooks/useAppContext';
+import {Context} from 'app/context/Context';
+
+import {addTask} from 'reducer/reducer';
 
 import s from './TodoList.module.css';
 
+export const TodoList = () => {
 
+  const {todos, dispatch} = useContext(Context);
 
-type Props = {
-  title: string
-  tasks: TaskType[]
-  setTodos: (todos: TodoType[]) => void
-}
+  const tasksMap = todos.map(t => <Task title={t.title} isDone={t.isDone} />);
 
-export const TodoList: FC<Props> = ({title, tasks, setTodos}) => {
-
-  const { todos } = useAppContext();
-
-
-  const tasksMap = tasks.map(t => <Task key={t.id} title={t.title} isDone={t.isDone} />);
-
-
+  const addNewTask = (title: string) => {
+    const newTask: TaskType = {id: '1', title, isDone: false};
+    dispatch(addTask(newTask));
+  };
 
   return (
     <div className={s.todoList}>
-      <h2>{title}</h2>
+      <h2>{'title'}</h2>
+      <input type="text"/>
+      <button onClick={() => addNewTask('hello')}>+</button>
       <ul>
         {tasksMap}
       </ul>

@@ -1,15 +1,13 @@
-import React, {useState} from 'react';
-import {AppProvider} from 'app/Context';
-import {RootState} from 'app/RootState';
+import React from 'react';
+import {AppProvider} from 'app/context/AppProvider';
 import {TodoList} from 'components/TodoList/TodoList';
 
 function App() {
-  const [todos, setTodos] = useState(RootState);
-
+  
   return (
-    <AppProvider value={{todos, setTodos}}>
+    <AppProvider>
       <div className="App">
-        <TodoList title={''} tasks={[]} setTodos={() => {}}/>
+        <TodoList />
       </div>
     </AppProvider>
   );
