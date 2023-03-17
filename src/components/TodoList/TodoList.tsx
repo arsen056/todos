@@ -17,6 +17,7 @@ export const TodoList = () => {
   const {todos, dispatch} = useContext(Context);
   
   const filteredTasks = getFilteredTasks(todos.filter, todos.tasks);
+  const leftTasks = getFilteredTasks('active', todos.tasks).length;
 
   const tasksMap = filteredTasks.length
     ? filteredTasks.map(t => <Task key={t.id} id={t.id} title={t.title} isDone={t.isDone} />)
@@ -31,9 +32,14 @@ export const TodoList = () => {
 
   return (
     <div className={s.todoList}>
-      <h2 className={s.title}>{todos.title}</h2>
+      <h2 className={s.title}>{todos.title}</h2 >
       <AddItem addItem={addNewTask}/>
       <ButtonGroup editFilter={editFilter}/>
+      {
+        leftTasks
+          ? <p className={s.itemsLeft}>{leftTasks} items left</p>
+          : <p className={s.itemsLeft}>all done</p>
+      }
       <ul>
         {tasksMap}
       </ul>
