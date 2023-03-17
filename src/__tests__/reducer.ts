@@ -4,7 +4,7 @@ import {
   changeFilter,
   changeStatus,
   changeTaskTitle,
-  changeTodoTitle,
+  changeTodoTitle, clearCompleted,
   deleteTask,
   reducer
 } from 'reducer/reducer';
@@ -72,4 +72,13 @@ test('Should be changed todolist title', () => {
   const endState = reducer(startState, changeTodoTitle(newTitle));
 
   expect(endState.title).toBe(newTitle);
+});
+
+test('Should be cleared completed', () => {
+
+  const endState = reducer(startState, clearCompleted());
+
+  const tasksClearedCompleted = endState.tasks.filter(t => !t.isDone);
+
+  expect(tasksClearedCompleted.length).toBe(4);
 });
