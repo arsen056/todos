@@ -8,7 +8,7 @@ export const initState: TodosType = {
     {id: uuid(), title: 'React', isDone: false},
     {id: uuid(), title: 'Html', isDone: false},
     {id: uuid(), title: 'Css', isDone: false},
-    {id: uuid(), title: 'JS', isDone: false}]
+    {id: uuid(), title: 'JS', isDone: true}]
 };
 
 export const reducer = (state: TodosType, action: actionsType): TodosType => {
@@ -25,6 +25,8 @@ export const reducer = (state: TodosType, action: actionsType): TodosType => {
     return {...state, filter: action.filter};
   case 'CHANGE_TODOLIST_TITLE':
     return {...state, title: action.title};
+  case 'CLEAR_COMPLETED':
+    return {...state, tasks: state.tasks.map(t => ({...t, isDone: false}))};
   default:
     return state;
   }
@@ -36,6 +38,7 @@ type actionsType = ReturnType<typeof addTask>
   | ReturnType<typeof changeFilter>
   | ReturnType<typeof changeTaskTitle>
   | ReturnType<typeof changeTodoTitle>
+  | ReturnType<typeof clearCompleted>
 
 export const addTask = (task: TaskType) => ({type: 'ADD_TASK', task} as const);
 export const changeStatus = (id: string, isDone: boolean) => ({type: 'CHANGE_STATUS', id, isDone} as const);
@@ -43,3 +46,4 @@ export const deleteTask = (id: string) => ({type: 'DELETE_TASK', id} as const);
 export const changeFilter = (filter: FilterType) => ({type: 'CHANGE_FILTER', filter} as const);
 export const changeTaskTitle = (id: string, title: string) => ({type: 'CHANGE_TASK_TITLE', id, title} as const);
 export const changeTodoTitle = (title: string) => ({type: 'CHANGE_TODOLIST_TITLE', title} as const);
+export const clearCompleted = () => ({type: 'CLEAR_COMPLETED'} as const);

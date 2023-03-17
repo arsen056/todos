@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
-import {FilterType, TaskType} from 'common/types';
+import {TaskType} from 'common/types';
 import {Task} from 'components/Task/Task';
 import {Context} from 'app/context/Context';
-import {addTask, changeFilter} from 'reducer/reducer';
+import {addTask} from 'reducer/reducer';
 import {AddItem} from 'components/AddItem/AddItem';
 import uuid from 'react-uuid';
 import {getFilteredTasks} from 'common/utils/getFilteredTasks';
@@ -17,7 +17,7 @@ export const TodoList = () => {
   const {todos, dispatch} = useContext(Context);
   
   const filteredTasks = getFilteredTasks(todos.filter, todos.tasks);
-  const leftTasks = getFilteredTasks('active', todos.tasks).length;
+  const leftTasks: number = getFilteredTasks('active', todos.tasks).length;
 
   const tasksMap = filteredTasks.length
     ? filteredTasks.map(t => <Task key={t.id} id={t.id} title={t.title} isDone={t.isDone} />)
@@ -28,13 +28,11 @@ export const TodoList = () => {
     dispatch(addTask(newTask));
   };
 
-  const editFilter = (filter: FilterType) => dispatch(changeFilter(filter));
-
   return (
     <div className={s.todoList}>
       <h2 className={s.title}>{todos.title}</h2 >
       <AddItem addItem={addNewTask}/>
-      <ButtonGroup editFilter={editFilter}/>
+      <ButtonGroup />
       {
         leftTasks
           ? <p className={s.itemsLeft}>{leftTasks} items left</p>
