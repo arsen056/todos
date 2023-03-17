@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState, KeyboardEvent} from 'react';
+import React, {ChangeEvent, FC, useState, KeyboardEvent, memo} from 'react';
 import {Input} from 'components/Input/Input';
 import {Button} from 'components/Button/Button';
 
@@ -8,7 +8,7 @@ type Props = {
   addItem: (title: string) => void
 }
 
-export const AddItem:FC<Props> = ({addItem}) => {
+export const AddItem:FC<Props> = memo(({addItem}) => {
   const [value, setValue] = useState<string>('');
   const [error, setError] = useState<string>('');
 
@@ -40,4 +40,4 @@ export const AddItem:FC<Props> = ({addItem}) => {
       <Button className={s.button} onClick={onClickHandler}>+</Button>
     </div>
   );
-};
+});

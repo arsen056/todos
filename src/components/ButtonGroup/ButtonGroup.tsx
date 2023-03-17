@@ -1,22 +1,23 @@
-import React, {useContext, useState} from 'react';
+import React, {FC, memo, useCallback, useState} from 'react';
 import {FilterType} from 'common/types';
 import {Button} from 'components/Button/Button';
-import {Context} from 'app/context/Context';
-import {changeFilter, clearCompleted} from 'reducer/reducer';
 
 import s from './ButtonGroup.module.css';
 
-export const ButtonGroup = () => {
-  const {dispatch} = useContext(Context);
+type Props = {
+  editFilter: (filter: FilterType) => void
+  clearCompleted: () => void
+}
 
+export const ButtonGroup:FC<Props> = memo(({editFilter, clearCompleted}) => {
   const [filter, setFilter] = useState<FilterType>('all');
 
-  const onClickHandler = (filter: FilterType) => {
-    dispatch(changeFilter(filter));
+  const onClickHandler = useCallback((filter: FilterType) => {
+    editFilter(filter);
     setFilter(filter);
-  };
+  }, [editFilter]) ;
 
-  const clearCompletedHandler = () => dispatch(clearCompleted());
+  const clearCompletedHandler = useCallback(() => clearCompleted(),[clearCompleted]);
 
   return (
     <div className={s.group}>
@@ -26,4 +27,4 @@ export const ButtonGroup = () => {
       <Button onClick={clearCompletedHandler}>Clear</Button>
     </div>
   );
-};
+});

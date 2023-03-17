@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useContext} from 'react';
+import React, {ChangeEvent, FC, memo, useContext} from 'react';
 import {Context} from 'app/context/Context';
 import {changeStatus, changeTaskTitle, deleteTask} from 'reducer/reducer';
 import {EditableSpan} from 'components/EditableSpan/EditableSpan';
@@ -12,8 +12,7 @@ type Props = {
   title: string
   isDone: boolean
 }
-export const Task: FC<Props> = ({id, title, isDone}) => {
-
+export const Task: FC<Props> = memo(({id, title, isDone}) => {
   const {dispatch} = useContext(Context);
 
   const changeStatusHandler = (e: ChangeEvent<HTMLInputElement>) => {
@@ -41,4 +40,4 @@ export const Task: FC<Props> = ({id, title, isDone}) => {
       <Button onClick={deleteTaskHandler}>x</Button>
     </li>
   );
-};
+});
