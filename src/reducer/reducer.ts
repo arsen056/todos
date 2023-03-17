@@ -42,4 +42,4 @@ export const changeStatus = (id: string, isDone: boolean) => ({type: 'CHANGE_STA
 export const deleteTask = (id: string) => ({type: 'DELETE_TASK', id} as const);
 export const changeFilter = (filter: FilterType) => ({type: 'CHANGE_FILTER', filter} as const);
 export const changeTaskTitle = (id: string, title: string) => ({type: 'CHANGE_TASK_TITLE', id, title} as const);
-export const changeTodoTitle = (id: string, title: string) => ({type: 'CHANGE_TODOLIST_TITLE', title} as const);
+export const changeTodoTitle = (title: string) => ({type: 'CHANGE_TODOLIST_TITLE', title} as const);

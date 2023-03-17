@@ -5,9 +5,7 @@ import {Context} from 'app/context/Context';
 import {addTask, changeFilter} from 'reducer/reducer';
 import {AddItem} from 'components/AddItem/AddItem';
 import uuid from 'react-uuid';
-
 import {getFilteredTasks} from 'utils/getFilteredTasks';
-
 import {ButtonGroup} from 'components/ButtonGroup/ButtonGroup';
 
 import s from './TodoList.module.css';
