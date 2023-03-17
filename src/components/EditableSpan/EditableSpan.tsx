@@ -1,6 +1,8 @@
 import React, {ChangeEvent, FC, useState} from 'react';
 import {Input} from 'components/Input/Input';
 
+import s from './EditableSpan.module.css';
+
 interface Props {
   changeTitle: (title: string) => void
   title: string
@@ -40,6 +42,6 @@ export const EditableSpan:FC<Props> = ({changeTitle, title, className}) => {
         onBlur={changeEditMode}
         autoFocus={true}
         error={error} />
-      : <span className={className} onDoubleClick={setEdit}>{title}</span>
+      : <span className={`${s.span} ${className}`} onDoubleClick={setEdit}>{title}</span>
   );
 };

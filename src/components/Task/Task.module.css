@@ -11,6 +11,10 @@
   display: inline;
 }
 
+.taskItem {
+  display: flex;
+}
+
 .checked {
   text-decoration: line-through;
   opacity: 0.5;

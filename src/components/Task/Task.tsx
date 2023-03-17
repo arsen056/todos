@@ -30,7 +30,7 @@ export const Task: FC<Props> = ({id, title, isDone}) => {
 
   return (
     <li className={s.taskWrapper}>
-      <div>
+      <div className={s.taskItem}>
         <label className={`${s.task} ${isCheckedClass}`}>
           <input className={s.checkbox} onChange={changeStatusHandler} checked={isDone} type="checkbox"/>
           <span className={s.customCheckbox}></span>
