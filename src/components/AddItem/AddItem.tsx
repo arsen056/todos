@@ -1,4 +1,4 @@
-import React, {ChangeEvent, FC, useState} from 'react';
+import React, {ChangeEvent, FC, useState, KeyboardEvent} from 'react';
 import {Input} from 'components/Input/Input';
 import {Button} from 'components/Button/Button';
 
@@ -29,9 +29,14 @@ export const AddItem:FC<Props> = ({addItem}) => {
     setError('');
   };
 
+  const onEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') onClickHandler();
+  };
+
   return (
     <div className={s.addItem}>
-      <Input fullwidth={true} className={s.input} value={value} onChange={onChangeHandler} error={error} type="text"/>
+      <Input fullwidth={true} className={s.input} value={value} onChange={onChangeHandler} error={error} type="text"
+        onKeyDown={onEnter}/>
       <Button className={s.button} onClick={onClickHandler}>+</Button>
     </div>
   );
