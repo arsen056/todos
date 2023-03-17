@@ -1,6 +1,6 @@
-import {TaskType} from 'types';
+import {TaskType} from 'common/types';
 import uuid from 'react-uuid';
-import {getFilteredTasks} from 'utils/getFilteredTasks';
+import {getFilteredTasks} from 'common/utils/getFilteredTasks';
 
 const tasks: TaskType[] = [
   {id: uuid(), title: 'React', isDone: false},

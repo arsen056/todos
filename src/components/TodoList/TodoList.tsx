@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
-import {FilterType, TaskType} from 'types';
+import {FilterType, TaskType} from 'common/types';
 import {Task} from 'components/Task/Task';
 import {Context} from 'app/context/Context';
 import {addTask, changeFilter} from 'reducer/reducer';
 import {AddItem} from 'components/AddItem/AddItem';
 import uuid from 'react-uuid';
-import {getFilteredTasks} from 'utils/getFilteredTasks';
+import {getFilteredTasks} from 'common/utils/getFilteredTasks';
 import {ButtonGroup} from 'components/ButtonGroup/ButtonGroup';
 
 import {ListEmpty} from 'components/ListEmpty/ListEmpty';

@@ -1,4 +1,4 @@
-import {FilterType, TaskType} from 'types';
+import {FilterType, TaskType} from 'common/types';
 
 export const getFilteredTasks = (filter: FilterType, tasks: TaskType[]): TaskType[]  => {
   switch (filter) {

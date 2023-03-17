@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {FilterType} from 'types';
+import {FilterType} from 'common/types';
 import {Button} from 'components/Button/Button';
 
 import s from './ButtonGroup.module.css';

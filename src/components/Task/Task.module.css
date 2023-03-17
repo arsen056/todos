@@ -41,7 +41,7 @@
   display: inline-block;
   width: 23px;
   height: 23px;
-  background-image: url('../../assets/done.svg');
+  background-image: url('../../common/assets/done.svg');
   background-size: contain;
   background-repeat: no-repeat;
   position: absolute;

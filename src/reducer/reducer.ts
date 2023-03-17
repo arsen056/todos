@@ -1,4 +1,4 @@
-import {FilterType, TaskType, TodosType} from 'types';
+import {FilterType, TaskType, TodosType} from 'common/types';
 import uuid from 'react-uuid';
 
 export const initState: TodosType = {

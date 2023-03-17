@@ -1,4 +1,4 @@
 import {createContext} from 'react';
-import {ContextType} from 'types';
+import {ContextType} from 'common/types';
 
 export const Context = createContext<ContextType>({} as ContextType);

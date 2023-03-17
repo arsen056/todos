@@ -1,4 +1,4 @@
-import {TaskType, TodosType} from 'types';
+import {TaskType, TodosType} from 'common/types';
 import {
   addTask,
   changeFilter,
