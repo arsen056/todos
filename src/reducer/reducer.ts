@@ -1,7 +1,7 @@
 import {FilterType, TaskType, TodosType} from 'common/types';
 import uuid from 'react-uuid';
 
-export const initState: TodosType = {
+export const State: TodosType = {
   title: 'Todos',
   filter: 'all',
   tasks: [
