@@ -8,6 +8,8 @@ import uuid from 'react-uuid';
 import {getFilteredTasks} from 'utils/getFilteredTasks';
 import {ButtonGroup} from 'components/ButtonGroup/ButtonGroup';
 
+import {ListEmpty} from 'components/ListEmpty/ListEmpty';
+
 import s from './TodoList.module.css';
 
 export const TodoList = () => {
@@ -16,7 +18,9 @@ export const TodoList = () => {
   
   const filteredTasks = getFilteredTasks(todos.filter, todos.tasks);
 
-  const tasksMap = filteredTasks.map(t => <Task key={t.id} id={t.id} title={t.title} isDone={t.isDone} />);
+  const tasksMap = filteredTasks.length
+    ? filteredTasks.map(t => <Task key={t.id} id={t.id} title={t.title} isDone={t.isDone} />)
+    : <ListEmpty />;
 
   const addNewTask = (title: string) => {
     const newTask: TaskType = {id: uuid(), title, isDone: false};

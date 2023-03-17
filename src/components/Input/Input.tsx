@@ -7,7 +7,7 @@ type Props = {
   fullwidth: boolean
 } & ComponentProps<'input'>
 
-export const Input:FC<Props> = ({className, fullwidth, error, ...rest}) => {
+export const Input:FC<Props> = ({className, placeholder = 'Enter title', fullwidth, error, ...rest}) => {
 
   const errorClassName = error ? s.errorInput : '';
   const fullWidthClassName = fullwidth ? s.fullwidth : '';
@@ -15,7 +15,7 @@ export const Input:FC<Props> = ({className, fullwidth, error, ...rest}) => {
   const inputClassName = `${s.input} ${className} ${errorClassName} ${fullWidthClassName}`;
   return (
     <span className={s.inputWrapper}>
-      <input className={inputClassName} {...rest} placeholder={'Enter your title'}/>
+      <input className={inputClassName} {...rest} placeholder={placeholder}/>
     </span>
   );
 };

@@ -4,7 +4,7 @@ import {Button} from 'components/Button/Button';
 
 import s from './AddItem.module.css';
 
-interface Props {
+type Props = {
   addItem: (title: string) => void
 }
 
